@@ -12,7 +12,6 @@ def find_possible_words(input_word):
             output.append(y)
     return(output)
 
-
 def pl_dict_check(word):
     input = find_possible_words(word)
 
