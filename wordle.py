@@ -1,9 +1,9 @@
-# script to get all valid polish words where only few consecutive letters are known
+# script to get all valid polish/english words where only few consecutive letters are known
 # the output is validated by sjp.pl dictionary
-# position of letters can be adjusted in line 10 (x_AAA_y by default), can be changed to AAA_x_y or x_y_AAA
+# position of letters can be adjusted in line 11 (x_AAA_y by default), can be changed to AAA_x_y or x_y_AAA etc
 
 def find_possible_words(input_word):
-    a = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    a = ['a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','q','r','s','ś','t','u','v','w','x','y','z','ź','ż']
     output = []
 
     for letter1 in a:
@@ -11,15 +11,25 @@ def find_possible_words(input_word):
             y = letter1 + input_word + letter2
             output.append(y)
     return(output)
-
-def pl_dict_check(word):
+    
+def dict_check(word):
     input = find_possible_words(word)
 
-    with open("slowa.txt", "r") as f:  #dictionary is 40mb file, you can download it from here: https://sjp.pl/slownik/growy/ and enter the local path 
+   
+    #EN
+    with open("/Users/kamilgadek/Downloads/old_mac/Python1stproject/english3.txt", "r") as f:
+    #PL
+    # with open("/Users/kamilgadek/Downloads/old_mac/Python1stproject/slowa.txt", "r") as f:
         lines = [line.rstrip('\n') for line in f]
 
     for i in input:
         if i in lines:
             print(i + ' in the dict')
 
-print(pl_dict_check("ila")) # insert the 3-character string (for literalnie.fun only) or any other string of choice
+letters = input("Podaj litery / Enter letters: ")
+print('Pasujące słowa / Matching words: ')
+print(dict_check(letters))
+
+
+
+
