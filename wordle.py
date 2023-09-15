@@ -17,9 +17,9 @@ def dict_check(word):
 
    
     #EN
-    with open("/Users/kamilgadek/Downloads/old_mac/Python1stproject/english3.txt", "r") as f:
+    with open("***/validate_word_incomplete_input/english3.txt", "r") as f: #update your path
     #PL
-    # with open("/Users/kamilgadek/Downloads/old_mac/Python1stproject/slowa.txt", "r") as f:
+    # with open("***/validate_word_incomplete_input/slowa.txt", "r") as f: #update your path
         lines = [line.rstrip('\n') for line in f]
 
     for i in input:
@@ -29,7 +29,3 @@ def dict_check(word):
 letters = input("Podaj litery / Enter letters: ")
 print('Pasujące słowa / Matching words: ')
 print(dict_check(letters))
-
-
-
-
